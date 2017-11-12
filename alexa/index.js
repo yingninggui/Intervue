@@ -79,15 +79,17 @@ function onIntent(intentRequest, session, callback) {
           //callback(session.attributes, buildSpeechletResponseWithoutCard(output, "", "false"));
           console.log("launch request executed");
           handleTestRequest(intent, session, callback, param);
-        }  else {
+          intentName = 'LaunchRequest';
+        }  else if (count==1) {
           //console.log(JSON.stringify(intentRequest.intent.slots));
           //console.log(JSON.parse(intentRequest.intent.slots));
-          var message = "I am super happy and content with life I am positive and great fabulous";
+          var message = "It is absolutely certain that I will win this hackathon";
           //var message = intentRequest.intent.slots.samples[4];
           param = encodeURI("/answer/"+message+"/"+qid+"/"+user);
           handleMessageRequest(intent, session, callback, param);
             console.log("user answer request executed");
-           intentName = 'UserAnswers';
+           intentName = 'LaunchRequest';
+           count--;
         }
     } else if (intentName === 'AlexaQuestion') {
       param = "/question/"+user;
@@ -95,15 +97,14 @@ function onIntent(intentRequest, session, callback) {
           console.log("question executed");
         handleTestRequest(intent, session, callback, param);
           intentName = 'UserAnswers';
-    } else if (intentName === 'UserAnswers') {
-          console.log("to string: "+JSON.stringify(intentRequest));
-          console.log("to json: "+JSON.parse(intentRequest));
-          var message = this.event.IntentRequest.intent.slots;
-          param = encodeURI("/answer/"+message+"/"+qid+"/"+user);
-          handleMessageRequest(intent, session, callback, param);
-          // get();
-            console.log("user answer request executed");
-            intentName = 'AlexaFeedback';
+    //} else if (intentName === 'UserAnswers') {
+    //      console.log("to string: "+JSON.stringify(intentRequest));
+    //      var message = this.event.IntentRequest.intent.slots;
+    //      param = encodeURI("/answer/"+message+"/"+qid+"/"+user);
+    //      handleMessageRequest(intent, session, callback, param);
+    //      // get();
+    //        console.log("user answer request executed");
+    //        intentName = 'AlexaFeedback';
     } else if (intentName === 'AlexaFeedback') {
         var message = "Hello";
       //     var message = this.event.IntentRequest.intent.slots.answer.value;
