@@ -36,7 +36,8 @@
           "type": "AMAZON.LITERAL",
           "samples": ["how to ace my interview {value}", "how to get a job {value}",
             "how to crack the coding interview {value}",
-        "how do I get cali {value}", "My answer is {value}"]
+        "how do I get cali {value}", "Ask me another question {value}","can I have another question {value}",
+        "My answer is {value}"]
         },
       ]
     },

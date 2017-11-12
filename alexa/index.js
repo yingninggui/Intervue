@@ -82,7 +82,7 @@ function onIntent(intentRequest, session, callback) {
         }  else {
           //console.log(JSON.stringify(intentRequest.intent.slots));
           //console.log(JSON.parse(intentRequest.intent.slots));
-          var message = "it is 5am i want to die please send help";
+          var message = "I am super happy and content with life I am positive and great fabulous";
           //var message = intentRequest.intent.slots.samples[4];
           param = encodeURI("/answer/"+message+"/"+qid+"/"+user);
           handleMessageRequest(intent, session, callback, param);
